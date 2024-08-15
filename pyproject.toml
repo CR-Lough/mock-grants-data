@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "grants_dummy_data"
+version = "0.1.0"
+description = "duckdb dummy data"
+package-mode = false
+authors = ["Connor <crlough@chowaco.onmicrosoft.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+duckdb = "^1.0.0"
+dlt = "^0.4.10"
+pandas = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.6.0"]
+build-backend = "poetry.core.masonry.api"

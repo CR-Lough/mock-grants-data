@@ -1,0 +1,131 @@
+## 1st Schema - Disaster Assistance Grant Program
+- application_id (Primary Key, UUID): A unique identifier for each application.
+- grant_id (Foreign Key, references grants table): A reference to the specific grant this application is for.
+- farmer_rancher_name (VARCHAR): The name of the farmer or rancher applying for the grant.
+- application_date (DATE): The date the application was submitted.
+- farm_ranch_name (VARCHAR): The name of the farm or ranch, if applicable.
+- physical_address (VARCHAR): The physical address of the farmer/rancher.
+- physical_city (VARCHAR): The city of the physical address.
+- physical_state (VARCHAR): The state of the physical address.
+- physical_zip (VARCHAR): The ZIP code of the physical address.
+- mailing_address (VARCHAR): The mailing address if different from the physical address.
+- mailing_city (VARCHAR): The city of the mailing address.
+- mailing_state (VARCHAR): The state of the mailing address.
+- mailing_zip (VARCHAR): The ZIP code of the mailing address.
+- phone (VARCHAR): The phone number of the farmer/rancher.
+- email (VARCHAR): The email address of the farmer/rancher.
+- property_address (VARCHAR): The address where physical damage/loss occurred if different from the physical address.
+- property_city (VARCHAR): The city of the property where damage occurred.
+- property_state (VARCHAR): The state of the property where damage occurred.
+- property_zip (VARCHAR): The ZIP code of the property where damage occurred.
+- property_tax_id (VARCHAR): The property tax ID number.
+- latitude_longitude (VARCHAR): The latitude and longitude description of the property.
+- county (VARCHAR): The county where the physical damage or loss occurred.
+- acreage (DECIMAL): The acreage of the farm or ranch.
+- operation_type (VARCHAR): Type of operation (Commercial, subsistence, hobby).
+- property_owners (TEXT): List of persons owning more than 20% of the property.
+- farm_type (TEXT): Types of farm or ranch (Irrigated crop, Non-irrigated crop, Livestock, Other).
+- acres_impacted (DECIMAL): The number of acres impacted by the disaster.
+- amount_requested (DECIMAL): The total amount requested in the application.
+- source_of_information (VARCHAR): How the applicant heard about the grant opportunity.
+- damage_description (TEXT): A summary of the damage sustained by the operation.
+- fund_usage (TEXT): Details on how the grant funds will be used.
+- expense_documentation (TEXT): Details from the expense documentation table.
+- proof_of_damage (TEXT): Proof of damage or loss.
+- proof_of_payment (TEXT): Proof of payment for incurred expenses.
+- leased_property_letter (TEXT): A letter from the owner if the property is leased.
+- is_limited_resource (BOOLEAN): Certification if the applicant is a Limited Resource Farmer/Rancher.
+- is_socially_disadvantaged (BOOLEAN): Certification if the applicant is a member of a disadvantaged group.
+- application_agreement (TEXT): Text from the application agreement signed by the applicant.
+- signature (VARCHAR): Signature of the farmer or rancher.
+- application_preparer (VARCHAR): Name of the person who prepared the application if different from the farmer/rancher.
+- cd_staff_assistance (VARCHAR): Name of the Snohomish CD staff who assisted with the application.
+
+
+## 2nd Schema - Farmland Protection and Land Access Grant Program
+- application_id (Primary Key, UUID): A unique identifier for each application.
+- grant_id (Foreign Key, references grants table): A reference to the specific grant this application is for.
+- organization_name (VARCHAR): The name of the organization applying for the grant.
+- organization_address_line1 (VARCHAR): The first line of the organization's address.
+- organization_address_line2 (VARCHAR): The second line of the organization's address (optional).
+- organization_city (VARCHAR): The city of the organization's address.
+- organization_state (VARCHAR): The state of the organization's address.
+- organization_zip (VARCHAR): The ZIP code of the organization's address.
+- primary_contact_name (VARCHAR): The name of the primary contact person for the application.
+- primary_contact_email (VARCHAR): The email address of the primary contact person.
+- primary_contact_phone (VARCHAR): The phone number of the primary contact person.
+- property_address_line1 (VARCHAR): The first line of the property address.
+- property_address_line2 (VARCHAR): The second line of the property address (optional).
+- property_city (VARCHAR): The city of the property address.
+- property_state (VARCHAR): The state of the property address.
+- property_zip (VARCHAR): The ZIP code of the property address.
+- property_county (VARCHAR): The county where the property is located.
+- property_acreage (DECIMAL): The acreage of the property.
+- property_tax_parcel_ids (VARCHAR): The property tax parcel IDs.
+- property_zoning (VARCHAR): The zoning of the property.
+- project_description (TEXT): A general overview of the project, what the applicant is trying to achieve, and why funding is necessary.
+- site_viability_description (TEXT): Detailed description of the site's viability for agriculture and conservation, including soil classifications, current and historical uses, crop types, natural resources, proximity to other farmed or conserved land, or unique values.
+- site_infrastructure_description (TEXT): Description of the site infrastructure, including water rights/availability and current production practices.
+- threat_of_conversion (TEXT): Description of the demonstrated threat of conversion to non-agricultural use.
+- project_timeline (TEXT): Brief description of the project timeline and how the funding would align with any FarmPAI loan.
+- match_funding_source (VARCHAR): The source of any match funding (if applicable).
+- match_funding_status (VARCHAR): The status of the match funding (applied for, awarded, etc.).
+- future_farmer_identified (BOOLEAN): Whether the future farmer/buyer has been identified.
+- future_farmer_characteristics (TEXT): Characteristics of the future farmer/buyer, such as being a beginning farmer, historically underserved, limited resource, socially disadvantaged, or veteran.
+- natural_resource_investment_opportunity (TEXT): Opportunity for new or continued natural resource investments on the property.
+- eligibility_conservation_easements (BOOLEAN): Whether the organization is qualified to hold conservation easements under relevant RCWs.
+- secured_loan_through_farmPAI (BOOLEAN): Whether the organization has secured a loan through the Buy-Protect-Sell category of FarmPAI.
+
+## 3rd Schema - Riparian Grant Program
+- application_id (Primary Key, UUID): A unique identifier for each application.
+- grant_id (Foreign Key, references grants table): A reference to the specific grant this application is for.
+- first_name (VARCHAR): The first name of the person submitting the application.
+- last_name (VARCHAR): The last name of the person submitting the application.
+- email (VARCHAR): The contact email of the person submitting the application.
+- conservation_district (VARCHAR): The name of the conservation district the applicant represents.
+- cca_requirements_completed (BOOLEAN): Whether the Climate Commitment Act requirements have been completed.
+- total_funding_requested (DECIMAL): The total amount of funding requested.
+- project_types_requested (TEXT): A list of eligible project types for which funding is requested (e.g., Riparian Restoration Program Outreach, Technical Assistance/Planning/Design, Landowner Implemented Cost Share, District Implemented Projects, Maintenance, Permanent Protection).
+- riparian_outreach_funds_requested (DECIMAL): Amount of funds requested for Riparian Restoration Program Outreach.
+- riparian_outreach_activities (TEXT): Description of proposed eligible activities for Riparian Restoration Program Outreach.
+- technical_assistance_funds_requested (DECIMAL): Amount of funds requested for Technical Assistance/Planning/Design.
+- technical_assistance_activities (TEXT): Description of proposed eligible activities for Technical Assistance/Planning/Design.
+- landowner_cost_share_funds_requested (DECIMAL): Amount of funds requested for Landowner Implemented Cost Share.
+- landowner_cost_share_activities (TEXT): Description of proposed eligible activities for Landowner Implemented Cost Share.
+- district_implemented_funds_requested (DECIMAL): Amount of funds requested for District Implemented Projects.
+- district_implemented_activities (TEXT): Description of proposed eligible activities for District Implemented Projects.
+- maintenance_funds_requested (DECIMAL): Amount of funds requested for Maintenance.
+- maintenance_activities (TEXT): Description of proposed eligible activities for Maintenance.
+- permanent_protection_funds_requested (DECIMAL): Amount of funds requested for Permanent Protection.
+- permanent_protection_activities (TEXT): Description of proposed eligible activities for Permanent Protection.
+- prioritized_projects (TEXT): Titles of plans referenced for prioritizing the proposed work (e.g., watershed plan, salmon recovery plan, Puget Sound Action Agenda, habitat project list).
+- water_quality_impairment (BOOLEAN): Whether the project area is listed with a water quality impairment under the states 303(d) list.
+- nature_of_impairment (TEXT): Description of the nature of the impairment (e.g., sediment, temperature, toxics).
+- sti_plan (BOOLEAN): Whether the proposed project area has a Straight to Implementation (STI) plan.
+- sti_plan_intersection (TEXT): Description of how the proposed work intersects with the STI plan.
+- adjacent_project (BOOLEAN): Whether the project is adjacent to or within the same watershed as another riparian restoration project funded through another source.
+- adjacent_project_description (TEXT): Additional comments to explain the adjacent project.
+- leverages_other_resources (BOOLEAN): Whether the project will leverage other resources.
+- resource_leverage_description (TEXT): Description of how other resources will be leveraged.
+- continuous_project (BOOLEAN): Whether the project groups work on multiple parcels/landowners into a larger continuous project.
+- environmental_justice (BOOLEAN): Whether the project addresses environmental justice or emphasizes support of under-served, vulnerable, or over-burdened populations.
+- environmental_justice_description (TEXT): Further description of the proposed work related to environmental justice.
+- tribal_notification_letter (TEXT): Path or reference to the uploaded tribal notification letter and/or additional documentation.
+- cpds_acknowledgment (BOOLEAN): Acknowledgment that all cost-share projects must utilize the Conservation Practice Data System (CPDS).
+- voucher_acknowledgment (BOOLEAN): Acknowledgment that all work completed by June 30, 2025, must be vouchered for in July 2025 to close out the fiscal year/biennium.
+
+
+## 4th Schema - Riparian Plant Propagation Program
+- application_id (Primary Key, UUID): A unique identifier for each application.
+- grant_id (Foreign Key, references grants table): A reference to the specific grant this application is for.
+- first_name (VARCHAR): The first name of the person submitting the application.
+- last_name (VARCHAR): The last name of the person submitting the application.
+- email (VARCHAR): The contact email of the person submitting the application.
+- conservation_district (VARCHAR): The name of the conservation district the applicant represents.
+- funding_category (TEXT): The category/categories of funding requested (e.g., Purchasing native riparian trees and shrubs, Maintenance of plants, Creation or expansion of a holding site).
+- total_amount_requested (DECIMAL): The total amount of funding requested.
+- cultivation_experience (TEXT): Description of experience or expertise in the cultivation of woody plant materials.
+- partnerships (BOOLEAN): Whether the project involves partnerships with non-profit, state/federal, or tribal entities.
+- community_engagement (TEXT): Description of any community engagement or educational activities that will be conducted as part of the project.
+- budget_justification (TEXT): Path or reference to the uploaded detailed budget justification document.
+- additional_budget_documents (BOOLEAN): Whether there are additional budget documents attached.
