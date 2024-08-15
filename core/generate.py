@@ -1,5 +1,7 @@
 import duckdb
-
+from core.table_defs.application_tables import create_application_tables
+from core.table_defs.grant_tables import create_grant_tables
+from core.table_defs.report_tables import create_report_tables
 # Connect to a new DuckDB database
 conn = duckdb.connect('grants.duckdb')
 
@@ -7,61 +9,27 @@ conn = duckdb.connect('grants.duckdb')
 tables_list = [
         'grants',
         'applications',
-        'reports',
         'dagp_application_details',
         'fplagp_application_details',
         'rgp_application_details',
-        'rppgp_application_details'
+        'rppgp_application_details',
+        'reports',
+        'dagp_report_details',
+        'fplagp_report_details',
+        'rgp_report_details',
+        'rppgp_report_details'
     ]
 with duckdb.connect('grants.duckdb') as conn:
+    # Make sure we start from a blank slate
     for table in tables_list:
         conn.sql(f"DROP TABLE IF EXISTS {table}")
-    conn.sql('''
-        CREATE TABLE grants (
-            grant_id INTEGER PRIMARY KEY,
-            name VARCHAR
-        )
-    ''')
-    conn.sql('''
-        CREATE TABLE applications (
-            application_id UUID PRIMARY KEY,
-            grant_id UUID REFERENCES grants(grant_id),
-            applicant_type VARCHAR,
-            first_name VARCHAR,
-            last_name VARCHAR,
-            email VARCHAR,
-            phone VARCHAR,
-            application_date DATE,
-            physical_address VARCHAR,
-            physical_city VARCHAR,
-            physical_state VARCHAR,
-            physical_zip VARCHAR,
-            mailing_address VARCHAR,
-            mailing_city VARCHAR,
-            mailing_state VARCHAR,
-            mailing_zip VARCHAR,
-            property_address VARCHAR,
-            property_city VARCHAR,
-            property_state VARCHAR,
-            property_zip VARCHAR,
-            property_county VARCHAR,
-            property_acreage DECIMAL,
-            amount_requested DECIMAL,
-            source_of_information VARCHAR,
-            has_signature BOOLEAN,
-            application_preparer VARCHAR
-        )
-    ''')
+    
+    # Create the various tables necessary
+    create_grant_tables(conn)
+    create_application_tables(conn)
+    create_report_tables(conn)
 
-    conn.sql('''
-        CREATE TABLE reports (
-            id INTEGER PRIMARY KEY,
-            application_id INTEGER,
-            report_date DATE,
-            report_text VARCHAR,
-            FOREIGN KEY (application_id) REFERENCES applications(id)
-        )
-    ''')
+
 
 # Generate grants, applications, and reports mock data
     conn.sql(
