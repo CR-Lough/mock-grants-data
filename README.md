@@ -8,7 +8,7 @@ flowchart LR;
 	b --> bb[fplagp_application_details]
 	b --> bc[rgp_application_details]
 	b --> bd[rppgp_application_details]
-	a --> c[reports]
+	b --> c[reports]
 	c --> ca[dagp_report_details]
 	c --> cb[fplagp_report_details]
 	c --> cc[rgp_report_details]
