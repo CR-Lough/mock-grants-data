@@ -1,4 +1,4 @@
-def grant_table_inserts(conn):
+def generate_grant_mock_data(conn):
     conn.sql(
     '''
         INSERT INTO grants VALUES

@@ -10,6 +10,7 @@ python = ">=3.12,<3.13"
 duckdb = "^1.0.0"
 dlt = "^0.4.10"
 pandas = "^1.1.0"
+faker = "^27.0.0"
 
 [tool.poetry.dev-dependencies]
 
