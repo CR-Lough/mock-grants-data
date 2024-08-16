@@ -15,3 +15,4 @@ def generate_grant_mock_data(conn):
             (11, 'Sustainable Farms & Fields: Climate-Smart Livestock');
     '''
     )
+    print("Grant details data inserted successfully.")

@@ -3,7 +3,7 @@ from faker import Faker
 
 faker = Faker()
 faker.seed_instance(42)
-mock_data_row_count = 50
+mock_data_row_count = 100
 
 def generate_application_mock_data(conn):
     def insert_applications_data(conn):

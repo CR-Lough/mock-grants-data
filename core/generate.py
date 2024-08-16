@@ -4,6 +4,7 @@ from table_defs.grant_tables import create_grant_tables
 from table_defs.report_tables import create_report_tables
 from data_inserts.grant_inserts import generate_grant_mock_data
 from data_inserts.application_inserts import generate_application_mock_data
+from data_inserts.report_inserts import generate_report_mock_data
 
 # Connect to a new DuckDB database
 conn = duckdb.connect('grants.duckdb')
@@ -30,12 +31,11 @@ with duckdb.connect('grants.duckdb') as conn:
     # Create the necessary tables
     create_grant_tables(conn)
     create_application_tables(conn)
-    # create_report_tables(conn)
+    create_report_tables(conn)
 
     # Generate grants, applications, and reports mock data
     generate_grant_mock_data(conn)
     generate_application_mock_data(conn)
-    # generate_report_mock_data(conn)
+    generate_report_mock_data(conn)
 
-
-    conn.table("grants").show()
+    conn.table("reports").show()
