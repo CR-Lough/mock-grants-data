@@ -1,4 +1,15 @@
 # Grants, Applications, Reports: Dummy Data
+## Usage
+1. Activate the virtual environment with
+```
+poetry install
+poetry shell
+```
+2. Generate the dummy data .duckdb
+```
+cd core
+python3 generate.py
+```
 
 ## General Shape of .duckdb
 ```mermaid
