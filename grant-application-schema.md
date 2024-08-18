@@ -1,13 +1,13 @@
 ```mermaid
 erDiagram
     GRANTS {
-        INTEGER grant_id PK
+        INTEGER grant_id
         VARCHAR name
     }
     
     APPLICATIONS {
-        INTEGER application_id PK
-        INTEGER grant_id FK
+        INTEGER application_id
+        INTEGER grant_id
         VARCHAR applicant_type
         VARCHAR first_name
         VARCHAR last_name
@@ -36,14 +36,14 @@ erDiagram
     }
     
     REPORTS {
-        INTEGER report_id PK
-        INTEGER application_id FK
+        INTEGER report_id
+        INTEGER application_id
         DATE report_date
         TEXT report_summary
     }
 
     DAGP_REPORT_DETAILS {
-        INTEGER report_id PK FK
+        INTEGER report_id
         TEXT damages_assessed
         DECIMAL compensation_amount
         TEXT corrective_measures
@@ -51,7 +51,7 @@ erDiagram
     }
 
     FPLAGP_REPORT_DETAILS {
-        INTEGER report_id PK FK
+        INTEGER report_id
         TEXT land_assessment
         VARCHAR zoning_compliance
         TEXT environmental_impact
@@ -60,7 +60,7 @@ erDiagram
     }
 
     RGP_REPORT_DETAILS {
-        INTEGER report_id PK FK
+        INTEGER report_id
         TEXT outreach_success
         TEXT technical_assistance_evaluation
         TEXT cost_share_effectiveness
@@ -70,7 +70,7 @@ erDiagram
     }
 
     RPPGP_REPORT_DETAILS {
-        INTEGER report_id PK FK
+        INTEGER report_id
         TEXT cultivation_assessment
         TEXT community_engagement_review
         TEXT budget_justification_review
@@ -79,7 +79,7 @@ erDiagram
     }
 
     DAGP_APPLICATION_DETAILS {
-        INTEGER application_id PK FK
+        INTEGER application_id
         VARCHAR farm_ranch_name
         VARCHAR property_tax_id
         VARCHAR latitude_longitude
@@ -98,7 +98,7 @@ erDiagram
     }
 
     FPLAGP_APPLICATION_DETAILS {
-        INTEGER application_id PK FK
+        INTEGER application_id
         VARCHAR property_tax_parcel_ids
         VARCHAR property_zoning
         TEXT project_description
@@ -116,7 +116,7 @@ erDiagram
     }
 
     RGP_APPLICATION_DETAILS {
-        INTEGER application_id PK FK
+        INTEGER application_id
         BOOLEAN cca_requirements_completed
         TEXT project_types_requested
         DECIMAL riparian_outreach_funds_requested
@@ -149,7 +149,7 @@ erDiagram
     }
 
     RPPGP_APPLICATION_DETAILS {
-        INTEGER application_id PK FK
+        INTEGER application_id
         TEXT funding_category
         TEXT cultivation_experience
         BOOLEAN partnerships
@@ -168,4 +168,5 @@ erDiagram
     APPLICATIONS ||--o{ FPLAGP_APPLICATION_DETAILS : "has"
     APPLICATIONS ||--o{ RGP_APPLICATION_DETAILS : "has"
     APPLICATIONS ||--o{ RPPGP_APPLICATION_DETAILS : "has"
+
 ```

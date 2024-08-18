@@ -10,6 +10,7 @@ poetry shell
 cd core
 python3 generate.py
 ```
+3. Skip right to the duckdb tables as .csv files at ~/grants_dummy_data/core/output_data
 
 ## General Shape of .duckdb
 ```mermaid
@@ -25,6 +26,7 @@ flowchart LR;
 	c --> cc[rgp_report_details]
 	c --> cd[rppgp_report_details]
 ```
+See a more in depth view, [here](https://github.com/CR-Lough/mock-grants-data/blob/main/grant-application-schema.md)
 
 ## Acronyms
 - Conservation Reserve Enhancement Program (CREP)
