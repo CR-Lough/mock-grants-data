@@ -26,7 +26,8 @@ def create_application_tables(conn):
                 amount_requested DECIMAL,
                 source_of_information VARCHAR,
                 has_signature BOOLEAN,
-                application_preparer VARCHAR
+                application_preparer VARCHAR,
+                status VARCHAR
             )
         ''')
     conn.sql('''

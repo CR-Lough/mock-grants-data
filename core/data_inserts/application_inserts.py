@@ -36,7 +36,8 @@ def generate_application_mock_data(conn):
                     "amount_requested": round(random.uniform(1000, 100000), 2),
                     "source_of_information": random.choice(["Internet", "Mail", "Word of Mouth", "Other"]),
                     "has_signature": random.choice([True, False]),
-                    "application_preparer": faker.name()
+                    "application_preparer": faker.name(),
+                    "status": random.choice(["Received", "In Review", "Denied", "Granted"]),
                 }
                 data.append(application)
             return data
@@ -56,7 +57,7 @@ def generate_application_mock_data(conn):
                 '{application['mailing_zip']}', '{application['property_address']}', '{application['property_city']}', 
                 '{application['property_state']}', '{application['property_zip']}', '{application['property_county']}', 
                 {application['property_acreage']}, {application['amount_requested']}, '{application['source_of_information']}', 
-                {application['has_signature']}, '{application['application_preparer']}')
+                {application['has_signature']}, '{application['application_preparer']}', '{application['status']}')
             """)
 
         # Combine all insert statements into a single SQL command
